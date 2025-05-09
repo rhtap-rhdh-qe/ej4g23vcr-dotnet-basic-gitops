@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: ej4g23vcr-dotnet-basic
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ej4g23vcr-dotnet-basic 
+  name: ej4g23vcr-dotnet-basic
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: ej4g23vcr-dotnet-basic
+    weight: 100 
